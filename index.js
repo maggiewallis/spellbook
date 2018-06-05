@@ -48,7 +48,7 @@ function submitForm(ev){
     ev.preventDefault()
     const f = ev.target
     const header = f.header.value
-    document.querySelector('#spells').textContent += ' ' + header
+    document.querySelector('#spells').innerHTML += '<p>' + header + '</p>'
 
     f.header.value = ' ' //erases the text in the form each time it is submitted
     

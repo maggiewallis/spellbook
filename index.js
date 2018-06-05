@@ -40,6 +40,7 @@ button.addEventListener('click', changeHeading)
 // IN CLASS NOTES - DAY 2 (NOT MY CODE)
 
 const form = document.querySelector('form')
+//form.header.focus() (hard way to focus it when page is first loaded)
 
 function submitForm(ev){
     // add 'debugger' which will help with troubleshooting,

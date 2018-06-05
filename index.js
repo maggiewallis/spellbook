@@ -36,3 +36,19 @@ button.addEventListener('click', changeHeading)
   //alert(heading) - not defined
   
   //sayContents()
+//------------------------------------------------------------------
+  // IN CLASS NOTES - DAY 2
+  const button = document.querySelector('button')
+
+  function changeHeading(){
+      document.querySelector('h1').textContent = 'Ye Olde Spellbook'
+  }
+  
+  button.addEventListener('click', changeHeading)
+
+  
+
+
+
+
+

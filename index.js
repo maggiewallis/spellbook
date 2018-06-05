@@ -37,16 +37,17 @@ button.addEventListener('click', changeHeading)
   
   //sayContents()
 //------------------------------------------------------------------
-  // IN CLASS NOTES - DAY 2
+  // IN CLASS NOTES - DAY 2 (NOT MY CODE)
   const button = document.querySelector('button')
 
   function changeHeading(){
-      document.querySelector('h1').textContent = 'Ye Olde Spellbook'
+      document.querySelector('h1#theSeondOne').textContent = 'Ye Olde Spellbook'
   }
   
   button.addEventListener('click', changeHeading)
 
-  
+
+
 
 
 

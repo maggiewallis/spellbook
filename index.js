@@ -38,7 +38,6 @@ button.addEventListener('click', changeHeading)
   //sayContents()
 //------------------------------------------------------------------
 // IN CLASS NOTES - DAY 2 (NOT MY CODE)
-const button = document.querySelector('button')
 
 function changeHeadingClass(ev){
 // add 'debugger' which will help with troubleshooting, stops it when it gets the error
@@ -47,7 +46,7 @@ function changeHeadingClass(ev){
       
 }
   
-button.addEventListener('click', changeHeading)
+//button.addEventListener('click', changeHeading)
 
 const form = document.querySelector('form')
 

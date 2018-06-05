@@ -37,16 +37,21 @@ button.addEventListener('click', changeHeading)
   
   //sayContents()
 //------------------------------------------------------------------
-  // IN CLASS NOTES - DAY 2 (NOT MY CODE)
-  const button = document.querySelector('button')
+// IN CLASS NOTES - DAY 2 (NOT MY CODE)
+const button = document.querySelector('button')
 
-  function changeHeading(){
-      document.querySelector('h1#theSeondOne').textContent = 'Ye Olde Spellbook'
-  }
+function changeHeadingClass(ev){
+// add 'debugger' which will help with troubleshooting, stops it when it gets the error
+    ev.preventDefault()
+    document.querySelector('h1#theSeondOne').textContent = 'Ye Olde Spellbook'
+      
+}
   
-  button.addEventListener('click', changeHeading)
+button.addEventListener('click', changeHeading)
 
+const form = document.querySelector('form')
 
+form.addEventListener('submit', changeHeadingClass)
 
 
 

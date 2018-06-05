@@ -39,18 +39,20 @@ button.addEventListener('click', changeHeading)
 //------------------------------------------------------------------
 // IN CLASS NOTES - DAY 2 (NOT MY CODE)
 
-function changeHeadingClass(ev){
+function submitForm(ev){
 // add 'debugger' which will help with troubleshooting, stops it when it gets the error
     ev.preventDefault()
-    document.querySelector('h1#theSeondOne').textContent = 'Ye Olde Spellbook'
-      
+    const f = ev.target
+    const header = f.header.value
+    document.querySelector('h1').textContent = header
+    
 }
   
 //button.addEventListener('click', changeHeading)
 
 const form = document.querySelector('form')
 
-form.addEventListener('submit', changeHeadingClass)
+form.addEventListener('submit', submitForm)
 
 
 

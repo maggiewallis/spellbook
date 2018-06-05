@@ -14,9 +14,7 @@
 
 
 <h1>Spellbook</h1>
-<h2>Heading 2</h2>
 
-<button>Change Heading 2</button>
 
 
   <form>
@@ -24,14 +22,22 @@
         <!-- <label for="spellName">Spell Name</label>  puts label in front of box-->
         <div>
           <input type="text" name="spellName" placeholder="Enter a spell name" autofocus>
-          <button type="submit">Add</button>
+          <button type="submit" id='spell' class='spells'>Add</button>
           <!-- <button></button> this is different from input because you can include a picture not just text -->
+        </div>
+        Ingredients:<br>
+        <div>
+        <input type="text" name="ingredients" placeholder="Enter an ingredient">
+        <button type="submit" form="form1" value="Submit">Add</button>
+        <!-- <button type="submit" id='ingredient' class='ingredients'>Add</button> -->
         </div>
       </form>
     
       <main>
         <ul id="spells"></ul>
       </main>
+
+    
 
 
 

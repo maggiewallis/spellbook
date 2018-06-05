@@ -14,8 +14,8 @@ function secondHeading(){
 }
 
 button.onclick = secondHeading
-
-/*
+//__________________________________
+/* MY ATTEMPT AT MAKING THE FORM THING WORK
 
 //const form = document.querySelector('form')
 const submit = document.querySelector('submit')
@@ -39,18 +39,23 @@ button.addEventListener('click', changeHeading)
 //------------------------------------------------------------------
 // IN CLASS NOTES - DAY 2 (NOT MY CODE)
 
+const form = document.querySelector('form')
+
 function submitForm(ev){
-// add 'debugger' which will help with troubleshooting, stops it when it gets the error
+    // add 'debugger' which will help with troubleshooting,
+    //stops it when it gets the error
     ev.preventDefault()
     const f = ev.target
     const header = f.header.value
-    document.querySelector('h1').textContent = header
+    document.querySelector('#spells').textContent += ' ' + header
+
+    f.header.value = ' ' //erases the text in the form each time it is submitted
     
 }
   
 //button.addEventListener('click', changeHeading)
 
-const form = document.querySelector('form')
+
 
 form.addEventListener('submit', submitForm)
 

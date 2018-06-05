@@ -6,26 +6,32 @@
     <title>Spellbook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- this is where you would input the google font link -->
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
 </head>
 <body>
+        <img src="skull.png" id="skull" alt="">
+        <img src="quill.png" id="quill" alt="">
 
 
-<h1>Heading 1</h1>
+<h1>Spellbook</h1>
 <h2>Heading 2</h2>
 
-<button>Change Header 2</button>
+<button>Change Heading 2</button>
 
-<form>
-    Input new Header:<br>
-    <!-- <label for="spellName">Spell Name</label>  puts label in front of box-->
-    <input type="text" name="header"placeholder='Enter a spell name' autofocus><br> 
-    <input type="submit" value="Submit">
-    <!-- <button></button> this is different from input because you can include a picture not just text -->
+
+  <form>
+        Input new Header:<br>
+        <!-- <label for="spellName">Spell Name</label>  puts label in front of box-->
+        <div>
+          <input type="text" name="spellName" placeholder="Enter a spell name" autofocus>
+          <button type="submit">Add</button>
+          <!-- <button></button> this is different from input because you can include a picture not just text -->
+        </div>
+      </form>
     
-  </form>
-
-  <div id='spells'></div>
+      <main>
+        <ul id="spells"></ul>
+      </main>
 
 
 

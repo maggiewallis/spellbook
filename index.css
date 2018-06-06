@@ -141,7 +141,7 @@ input.small {
 
 .spell {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .spell .name {
@@ -150,7 +150,9 @@ input.small {
   overflow-x: hidden;
   text-overflow: ellipsis;
   padding-left: 0.1em;
+  margin-right: 1in;
 }
 .level {
   color: cornflowerblue;
+  margin-right: 1in;
 }

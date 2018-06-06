@@ -57,30 +57,28 @@ const app = {
 
 
 
-      item.setAttribute('id','item'+i);
-      var removeButton = document.createElement('button');
-      removeButton.appendChild(document.createTextNode("remove"));
-      removeButton.setAttribute('onClick','delete("'+'item'+i+'")');
-      item.appendChild(removeButton);
+      item.setAttribute('id','item'+i)
+      var removeButton = document.createElement('button')
+      removeButton.appendChild(document.createTextNode("remove"))
+      removeButton.setAttribute('onClick','delete("'+'item'+i+'")')
+      item.appendChild(removeButton)
       removeButton.addEventListener("click", function(){
-        list.removeChild(item);
-        });
+        list.removeChild(item)
+        spellArray.pop(f.spellName.value)
+        })
        
 
 
       const remove = document.querySelector('button.restart')
       remove.addEventListener("click", function(){
       try{
-        list.removeChild(item);
+        list.removeChild(item)
+        spellArray.pop(f.spellName.value)
       } 
       finally{
           return list
       }
-      });
-
-
-      
-    
+      })
       //debugger
   
       f.reset()

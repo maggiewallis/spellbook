@@ -40,6 +40,3 @@ function submitIngredient(event){
 
 form.addEventListener('submit', submitIngredient)
 
-
-
-

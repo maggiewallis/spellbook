@@ -150,9 +150,42 @@ input.small {
   overflow-x: hidden;
   text-overflow: ellipsis;
   padding-left: 0.1em;
-  margin-right: 1in;
+  margin-right: 0.5in;
+  justify-content: space-evenly;
 }
 .level {
   color: cornflowerblue;
-  margin-right: 1in;
+  margin-right: 0.5in;
+}
+
+
+button[id="delete"] {
+    background-color: transparent;
+    border: 2px solid rgba(100, 50, 0, 0.8);
+    border-radius: 12px;
+    color: rgba(100, 50, 0, 0.8);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+button[id='delete']:hover {
+    background-color: rgba(100, 50, 0, 0.8);
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+}
+button[class="restart"] {
+    background-color: transparent;
+    color: rgba(100, 50, 0, 0.8);
+    border-radius: 12px;
+    border: 2px solid rgba(100, 50, 0, 0.8);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  button[class='restart']:hover {
+    background-color: rgba(100, 50, 0, 0.8);
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
 }

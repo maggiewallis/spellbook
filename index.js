@@ -9,7 +9,7 @@ const app = {
         this.handleSubmit(ev)
       })
     },
-  
+    
     renderProperty: function(name, value) {
       const el = document.createElement('span')
       el.textContent = value
@@ -59,7 +59,8 @@ const app = {
 
       item.setAttribute('id','item'+i)
       var removeButton = document.createElement('button')
-      removeButton.appendChild(document.createTextNode("remove"))
+      removeButton.setAttribute('id', 'delete')
+      removeButton.appendChild(document.createTextNode("Remove"))
       removeButton.setAttribute('onClick','delete("'+'item'+i+'")')
       item.appendChild(removeButton)
       removeButton.addEventListener("click", function(){
@@ -67,8 +68,7 @@ const app = {
         spellArray.pop(f.spellName.value)
         })
        
-
-
+      
       const remove = document.querySelector('button.restart')
       remove.addEventListener("click", function(){
       try{
@@ -85,6 +85,8 @@ const app = {
       i++
     },
   }
-  
+
   
   app.init()
+
+ 

@@ -1,3 +1,4 @@
+const spellArray = []
 const app = {
     init: function() {
       const form = document.querySelector('form')
@@ -19,16 +20,21 @@ const app = {
   
       // collect an array of renderProperty's return values
       // (an array of <span> elements)
+      const fullArray = []
       const childElements = properties.map(property => {
         return this.renderProperty(property, spell[property])
+      fullArray.push(childElements)
       })
   
       const item = document.createElement('li')
       item.classList.add('spell')
-  
+      const array = []
+      array.push('spell')
+
       // append each <span> to the <li>
       childElements.forEach(el => {
         item.appendChild(el)
+        //array.push(el)
       })
   
       return item
@@ -45,9 +51,10 @@ const app = {
       }
   
       const item = this.renderItem(spell)
-  
       const list = document.querySelector('#spells')
       list.appendChild(item)
+      spellArray.push(f.spellName.value)
+      debugger
   
       f.reset()
     },

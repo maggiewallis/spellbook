@@ -46,7 +46,9 @@ form > div {
   align-items: stretch;
 }
 
-input[type="text"] {
+input[type="text"]:focus,
+input[type='number']:focus {
+  flex-grow: 4;
   flex: 1 1 0px;
   height: auto;
   min-width: 0;
@@ -131,4 +133,9 @@ ul#spells {
 .details {
   font-size: 0.7em;
   margin-top: -1rem;
+}
+
+
+input.small {
+    flex-grow: 1;
 }

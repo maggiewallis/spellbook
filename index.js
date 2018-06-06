@@ -1,4 +1,7 @@
-const spellArray = []
+var spellArray = []
+const list = document.querySelector('#spells')
+var i =0
+
 const app = {
     init: function() {
       const form = document.querySelector('form')
@@ -29,7 +32,7 @@ const app = {
 
       // append each <span> to the <li>
       childElements.forEach(el => {
-        item.appendChild(el)
+      item.appendChild(el)
       })
   
       return item
@@ -46,13 +49,44 @@ const app = {
       }
   
       const item = this.renderItem(spell)
-      const list = document.querySelector('#spells')
+       
       list.appendChild(item)
+      
       spellArray.push(f.spellName.value)
+
+
+
+
+      item.setAttribute('id','item'+i);
+      var removeButton = document.createElement('button');
+      removeButton.appendChild(document.createTextNode("remove"));
+      removeButton.setAttribute('onClick','delete("'+'item'+i+'")');
+      item.appendChild(removeButton);
+      removeButton.addEventListener("click", function(){
+        list.removeChild(item);
+        });
+       
+
+
+      const remove = document.querySelector('button.restart')
+      remove.addEventListener("click", function(){
+      try{
+        list.removeChild(item);
+      } 
+      finally{
+          return list
+      }
+      });
+
+
+      
+    
       //debugger
   
       f.reset()
+      i++
     },
   }
+  
   
   app.init()

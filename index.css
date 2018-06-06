@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans%7CHomemade+Apple%7CUnifrakturCook:700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Homemade+Apple|UnifrakturCook:700');
 
 body {
   background: url(wood.jpg);
@@ -46,10 +46,9 @@ form > div {
   align-items: stretch;
 }
 
-input[type="text"]:focus,
-input[type='number']:focus {
-  flex-grow: 4;
-  flex: 1 1 0px;
+input[type="text"],
+input[type="number"] {
+  flex: 4 1 0;
   height: auto;
   min-width: 0;
   display: block;
@@ -68,7 +67,8 @@ input[type='number']:focus {
   appearance: none;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus {
   outline: 0;
   border: 1px solid #8a8a8a;
   background-color: #fefefe;
@@ -119,7 +119,7 @@ main {
   height: calc(100vh - 18.5vw - 4rem);
   overflow-y: scroll;
   font-family: "Homemade Apple", cursive;
-  font-size: 1.4rem;
+  font-size: 2rem;
   color: rgba(100, 50, 0, 0.8);
   padding: 1.5rem 4rem;
   box-shadow: 1px 1px 15px  rgba(0,0,0,0.4);
@@ -135,7 +135,22 @@ ul#spells {
   margin-top: -1rem;
 }
 
-
 input.small {
-    flex-grow: 1;
+  flex-grow: 1;
+}
+
+.spell {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spell .name {
+  text-decoration: underline;
+  max-width: 80%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  padding-left: 0.1em;
+}
+.level {
+  color: cornflowerblue;
 }

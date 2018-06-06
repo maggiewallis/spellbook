@@ -1,42 +1,56 @@
-console.log('testing')
-
-
-
-const form = document.querySelector('form')
-//form.header.focus() (hard way to focus it when page is first loaded)
-
-function submitSpell(ev){
-    // add 'debugger' which will help with troubleshooting,
-    //stops it when it gets the error
-    ev.preventDefault()
-    const f = ev.target
-    const spellName = f.spellName.value
-    const sp = document.createElement("LI");
-    const text = document.createTextNode(spellName);
-    sp.appendChild(text);                            
-    document.getElementById("spells").appendChild(sp);  
-    //document.querySelector('#spells').innerHTML += `<li>${spellName}</li>`
-
-    f.spellName.value = ' ' //erases the text in the form each time it is submitted
-    
-}
-
-form.addEventListener('submit', submitSpell)
-
-
-function submitIngredient(event){
-    event.preventDefault()
-    const g = event.target
-    const ingredient = g.ingredients.value
-    const node = document.createElement("UL");
-    const textnode = document.createTextNode(ingredient);
-    node.appendChild(textnode);                             
-    document.getElementById("spells").appendChild(node);     
-    //document.querySelector('#spells').innerHTML += `<ul>${ingredient}</ul>`
-
-    g.ingredients.value = ' ' //erases the text in the form each time it is submitted
-    
-}
-
-form.addEventListener('submit', submitIngredient)
-
+const app = {
+    init: function() {
+      const form = document.querySelector('form')
+      form.addEventListener('submit', ev => {
+        this.handleSubmit(ev)
+      })
+    },
+  
+    renderProperty: function(name, value) {
+      const el = document.createElement('span')
+      el.textContent = value
+      el.classList.add(name)
+      return el
+    },
+  
+    renderItem: function(spell) {
+      // ['name', 'level']
+      properties = Object.keys(spell)
+  
+      // collect an array of renderProperty's return values
+      // (an array of <span> elements)
+      const childElements = properties.map(property => {
+        return this.renderProperty(property, spell[property])
+      })
+  
+      const item = document.createElement('li')
+      item.classList.add('spell')
+  
+      // append each <span> to the <li>
+      childElements.forEach(el => {
+        item.appendChild(el)
+      })
+  
+      return item
+    },
+  
+    handleSubmit: function(ev) {
+      ev.preventDefault()
+  
+      const f = ev.target
+  
+      const spell = {
+        name: f.spellName.value,
+        level: f.level.value,
+      }
+  
+      const item = this.renderItem(spell)
+  
+      const list = document.querySelector('#spells')
+      list.appendChild(item)
+  
+      f.reset()
+    },
+  }
+  
+  app.init()

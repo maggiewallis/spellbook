@@ -11,7 +11,6 @@
   <img src="skull.png" id="skull" alt="">
   <img src="quill.png" id="quill" alt="">
 
-
   <h1>Spellbook</h1>
 
   <form>
@@ -34,48 +33,16 @@
     </div>
   </form>
 
-  <button onclick="sortList()">Sort</button>
-
   <main>
-    <ul id="spells"></ul>
-    <button type="delete" class='restart'>Restart</button>
-    <script>
-            function sortList() {
-              var list, i, switching, b, shouldSwitch;
-              list = document.getElementById("spells");
-              switching = true;
-              /*Make a loop that will continue until
-              no switching has been done:*/
-              while (switching) {
-                //start by saying: no switching is done:
-                switching = false;
-                b = list.getElementsByTagName("LI");
-                //Loop through all list-items:
-                for (i = 0; i < (b.length - 1); i++) {
-                  //start by saying there should be no switching:
-                  shouldSwitch = false;
-                  /*check if the next item should
-                  switch place with the current item:*/
-                  if (b[i].innerText > b[i + 1].innerText) {
-                    /*if next item is alphabetically
-                    lower than current item, mark as a switch
-                    and break the loop:*/
-                    shouldSwitch = true;
-                    break;
-                  }
-                }
-                if (shouldSwitch) {
-                  /*If a switch has been marked, make the switch
-                  and mark the switch as done:*/
-                  b[i].parentNode.insertBefore(b[i + 1], b[i]);
-                  switching = true;
-                }
-              }
-            }
-            </script>
+    <ul id="spells">
+      <li class="spell template">
+        <span class="name"></span>
+        <span class="level"></span>
+        <button class="delete">del</button>
+        <button class="fav">fav</button>
+      </li>
+    </ul>
   </main>
-
-  
 
   <script src="index.js"></script>
 </body>

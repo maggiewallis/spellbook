@@ -167,12 +167,13 @@ button.fav {
   color: black;
 }
 
-.spell.fav{
-  background-color: goldenrod;
-}
-button.move{
+button.move {
   background-color: #3366ff;
   color: white;
+}
+
+.spell.fav {
+  background-color: goldenrod;
 }
 
 .template {

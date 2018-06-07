@@ -3,10 +3,26 @@ class App {
     this.spells = []
     this.template = document.querySelector('.spell.template')
     this.list = document.querySelector('#spells')
+
+    this.load()
+
     const form = document.querySelector('form')
     form.addEventListener('submit', ev => {
       this.handleSubmit(ev)
     })
+  }
+
+  load() {
+    // Read the JSON from localStorage
+    const spellJSON = localStorage.getItem('spells')
+
+    // Convert the JSON back into an array
+    const spellArray = JSON.parse(spellJSON)
+
+    // Load the spells back into the app
+    if (spellArray) {
+      spellArray.forEach(this.addSpell.bind(this))
+    }
   }
 
   renderProperty(name, value) {
@@ -27,11 +43,16 @@ class App {
     // Replace the appropriate values in each <span>
     properties.forEach(property => {
       const el = item.querySelector(`.${property}`)
-      if (el){
+      if (el) {
         el.textContent = spell[property]
         el.setAttribute('title', spell[property])
       }
     })
+
+    // Mark it as a favorite, if applicable
+    if (spell.favorite) {
+      item.classList.add('fav')
+    }
 
     // delete button
     item
@@ -45,23 +66,25 @@ class App {
     item
       .querySelector('button.fav')
       .addEventListener(
-        'click', 
+        'click',
         this.toggleFavorite.bind(this, spell)
       )
-    
+
+    // move up
     item
       .querySelector('button.up')
-        .addEventListener(
-            'click',
-            this.moveUp.bind(this, spell)
-        )
-        item
-        .querySelector('button.down')
-          .addEventListener(
-              'click',
-              this.moveDown.bind(this, spell)
-          )
+      .addEventListener(
+        'click',
+        this.moveUp.bind(this, spell)
+      )
 
+    // move down
+    item
+      .querySelector('button.down')
+      .addEventListener(
+        'click',
+        this.moveDown.bind(this, spell)
+      )
 
     return item
   }
@@ -74,16 +97,19 @@ class App {
     // Find its index in the array
     const i = this.spells.indexOf(spell)
 
-    // Only move it if it's not already first
-    if (i < this.spells.length-1) {
-      const nextSpell = this.spells[i+1]
-      this.spells[i+1] = spell
+    // Only move it if it's not already last
+    if (i < this.spells.length - 1) {
+      // Move it in the array
+      const nextSpell = this.spells[i + 1]
+      this.spells[i + 1] = spell
       this.spells[i] = nextSpell
+
+      // Move it on the page
       this.list.insertBefore(item.nextSibling, item)
     }
+
     this.save()
   }
-
 
   moveUp(spell, ev) {
     // Find the <li>
@@ -103,6 +129,7 @@ class App {
       // Move it on the page
       this.list.insertBefore(item, item.previousSibling)
     }
+
     this.save()
   }
 
@@ -115,15 +142,22 @@ class App {
     // Remove from the array
     const i = this.spells.indexOf(spell)
     this.spells.splice(i, 1)
+
     this.save()
   }
+
   toggleFavorite(spell, ev) {
-    // Remove from the DOM
     const button = ev.target
     const item = button.closest('.spell')
     spell.favorite = item.classList.toggle('fav')
     this.save()
+  }
 
+  addSpell(spell) {
+    this.spells.push(spell)
+
+    const item = this.renderItem(spell)
+    this.list.appendChild(item)
   }
 
   handleSubmit(ev) {
@@ -136,23 +170,20 @@ class App {
       level: f.level.value,
       favorite: false,
     }
-    this.spells.push(spell)
 
-    const item = this.renderItem(spell)
-    
+    this.addSpell(spell)
+
     this.save()
-
-    this.list.appendChild(item)
-
     f.reset()
     f.spellName.focus()
   }
 
-  save(){
-    localStorafe.setItem('spells', JSON.stringify(this.spells))
+  save() {
+    localStorage.setItem(
+      'spells',
+      JSON.stringify(this.spells)
+    )
   }
 }
 
-new App()
-// for trouble shooting, if you want to see it in the console you have to change the line to
-//const app = new App()
+const app = new App()

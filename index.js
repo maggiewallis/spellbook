@@ -1,15 +1,16 @@
-var spellArray = []
+
 const list = document.querySelector('#spells')
 var i =0
 
 const app = {
     init: function() {
+      this.spellArray = []
       const form = document.querySelector('form')
       form.addEventListener('submit', ev => {
         this.handleSubmit(ev)
       })
     },
-    
+
     renderProperty: function(name, value) {
       const el = document.createElement('span')
       el.textContent = value
@@ -27,6 +28,7 @@ const app = {
         return this.renderProperty(property, spell[property])
       })
   
+      
       const item = document.createElement('li')
       item.classList.add('spell')
 
@@ -47,12 +49,13 @@ const app = {
         name: f.spellName.value,
         level: f.level.value,
       }
-  
+      
+      this.spellArray.push(spell)
+      debugger
       const item = this.renderItem(spell)
        
       list.appendChild(item)
       
-      spellArray.push(f.spellName.value)
 
 
 

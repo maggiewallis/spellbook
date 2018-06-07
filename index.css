@@ -170,6 +170,10 @@ button.fav {
 .spell.fav{
   background-color: goldenrod;
 }
+button.move{
+  background-color: #3366ff;
+  color: white;
+}
 
 .template {
   display: none;

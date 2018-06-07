@@ -81,6 +81,7 @@ class App {
       this.spells[i] = nextSpell
       this.list.insertBefore(item.nextSibling, item)
     }
+    this.save()
   }
 
 
@@ -102,6 +103,7 @@ class App {
       // Move it on the page
       this.list.insertBefore(item, item.previousSibling)
     }
+    this.save()
   }
 
   removeSpell(spell, ev) {
@@ -113,12 +115,14 @@ class App {
     // Remove from the array
     const i = this.spells.indexOf(spell)
     this.spells.splice(i, 1)
+    this.save()
   }
   toggleFavorite(spell, ev) {
     // Remove from the DOM
     const button = ev.target
     const item = button.closest('.spell')
     spell.favorite = item.classList.toggle('fav')
+    this.save()
 
   }
 
@@ -135,12 +139,20 @@ class App {
     this.spells.push(spell)
 
     const item = this.renderItem(spell)
+    
+    this.save()
 
     this.list.appendChild(item)
 
     f.reset()
     f.spellName.focus()
   }
+
+  save(){
+    localStorafe.setItem('spells', JSON.stringify(this.spells))
+  }
 }
 
 new App()
+// for trouble shooting, if you want to see it in the console you have to change the line to
+//const app = new App()

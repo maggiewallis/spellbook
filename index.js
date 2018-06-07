@@ -1,5 +1,5 @@
 class App {
-  init() {
+  constructor() {
     this.spells = []
     this.template = document.querySelector('.spell.template')
     this.list = document.querySelector('#spells')
@@ -22,7 +22,7 @@ class App {
     item.classList.remove('template')
 
     // ['name', 'level', etc.]
-    properties = Object.keys(spell)
+    const properties = Object.keys(spell)
 
     // Replace the appropriate values in each <span>
     properties.forEach(property => {
@@ -143,4 +143,4 @@ class App {
   }
 }
 
-app.init()
+new App()
